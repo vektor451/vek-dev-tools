@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cyad4p5vd6mwt"]
+
+[ext_resource type="FontVariation" uid="uid://ytemdg1ri1v8" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoItalicConsole.tres" id="1_konn1"]
+
+[resource]
+base_font = ExtResource("1_konn1")
+variation_opentype = {
+2003265652: 650
+}
