@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fhsxbxlib66m"
-path="res://.godot/imported/closeIcon.svg-a53d2a2cc9ddcf00c8cb5251b26a967c.ctex"
+path="res://.godot/imported/closeIcon.svg-a0cd551772ba39e102c0767c7aa808b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/vek-dev-tools/closeIcon.svg"
-dest_files=["res://.godot/imported/closeIcon.svg-a53d2a2cc9ddcf00c8cb5251b26a967c.ctex"]
+source_file="res://addons/vek-dev-tools/assets/closeIcon.svg"
+dest_files=["res://.godot/imported/closeIcon.svg-a0cd551772ba39e102c0767c7aa808b3.ctex"]
 
 [params]
 

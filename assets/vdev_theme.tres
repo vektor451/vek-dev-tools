@@ -4,7 +4,7 @@
 [ext_resource type="FontVariation" uid="uid://bgwgc12twcwkc" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoBoldConsole.tres" id="2_8jvoe"]
 [ext_resource type="FontVariation" uid="uid://cyad4p5vd6mwt" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoBoldItalicConsole.tres" id="3_uj6rd"]
 [ext_resource type="FontFile" uid="uid://b7rpmtmesesmd" path="res://addons/vek-dev-tools/fonts/Roboto Mono/RobotoMono-Italic-VariableFont_wght.ttf" id="4_xvoov"]
-[ext_resource type="Texture2D" uid="uid://fhsxbxlib66m" path="res://addons/vek-dev-tools/closeIcon.svg" id="5_xvoov"]
+[ext_resource type="Texture2D" uid="uid://fhsxbxlib66m" path="res://addons/vek-dev-tools/assets/closeIcon.svg" id="5_xvoov"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryyi8"]
 content_margin_left = 4.0

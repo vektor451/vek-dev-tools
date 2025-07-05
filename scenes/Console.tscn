@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://buvyjgpb5k0yr"]
 
-[ext_resource type="Theme" uid="uid://c8xwqtlqsjwdp" path="res://addons/vek-dev-tools/vdev_theme.tres" id="1_cf1uo"]
+[ext_resource type="Theme" uid="uid://c8xwqtlqsjwdp" path="res://addons/vek-dev-tools/assets/vdev_theme.tres" id="1_cf1uo"]
 [ext_resource type="Script" uid="uid://d4kys5brawxen" path="res://addons/vek-dev-tools/scenes/ConsoleViewport.cs" id="1_vo5oj"]
 [ext_resource type="Script" uid="uid://x0tg7hljd0es" path="res://addons/vek-dev-tools/scripts/ConsoleLog.cs" id="2_objdc"]
 [ext_resource type="Script" uid="uid://d0uyb5e1ss5pi" path="res://addons/vek-dev-tools/scenes/ConsoleWindow.cs" id="3_3wq3b"]
