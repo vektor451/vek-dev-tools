@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dq10i4b0xdqwe" path="res://addons/vek-dev-tools/scenes/CommandSuggestions.cs" id="5_3wq3b"]
 
 [node name="ConsoleUI" type="Control"]
+z_index = 4096
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +19,7 @@ mouse_filter = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0.941176)
+z_index = 4096
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
