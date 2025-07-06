@@ -21,7 +21,10 @@ public partial class ConsoleViewport : SubViewport
         {
             consoleWindow.SetTransMem();
             consoleWindow.Visible = false;
+
+            consoleWindow.ContentScaleFactor = 1 / (consoleWindow.Theme as VDevTheme).scaleFactor;
             GuiEmbedSubwindows = false;
+
             consoleWindow.Visible = true;
             consoleWindow.RecallTransMem();
         }
@@ -29,7 +32,10 @@ public partial class ConsoleViewport : SubViewport
         {
             consoleWindow.SetTransMem();
             consoleWindow.Visible = false;
+
+            consoleWindow.ContentScaleFactor = 1;
             GuiEmbedSubwindows = true;
+
             consoleWindow.Visible = true;
             consoleWindow.RecallTransMem();
         }

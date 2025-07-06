@@ -87,25 +87,6 @@ public partial class DevConsole : Node
             Description = "Print out the following text.",
             UseSingleStringArg = true,
         });
-        AddCommand("echo2", new()
-        {
-            Action = Echo,
-            Description = "Print out the following text.",
-            UseSingleStringArg = true,
-        });
-        AddCommand("echo222", new()
-        {
-            Action = Echo,
-            Description = "Print out the following text.",
-            UseSingleStringArg = true,
-        });
-        AddCommand("ech222", new()
-        {
-            Action = Echo,
-            Description = "Print out the following text.",
-            UseSingleStringArg = true,
-        });
-
 
         AddCommand("help", new()
         {

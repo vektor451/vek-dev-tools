@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://c8xwqtlqsjwdp"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://c8xwqtlqsjwdp"]
 
 [ext_resource type="FontVariation" uid="uid://icyg3f00kg68" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoConsole.tres" id="1_rxgg7"]
 [ext_resource type="FontVariation" uid="uid://bgwgc12twcwkc" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoBoldConsole.tres" id="2_8jvoe"]
 [ext_resource type="FontVariation" uid="uid://cyad4p5vd6mwt" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoBoldItalicConsole.tres" id="3_uj6rd"]
 [ext_resource type="FontFile" uid="uid://b7rpmtmesesmd" path="res://addons/vek-dev-tools/fonts/Roboto Mono/RobotoMono-Italic-VariableFont_wght.ttf" id="4_xvoov"]
 [ext_resource type="Texture2D" uid="uid://fhsxbxlib66m" path="res://addons/vek-dev-tools/assets/closeIcon.svg" id="5_xvoov"]
+[ext_resource type="Script" uid="uid://bpqy58a8miwfw" path="res://addons/vek-dev-tools/scripts/VDevTheme.cs" id="6_sgv6n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryyi8"]
 content_margin_left = 4.0
@@ -17,15 +18,16 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgv6n"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uj6rd"]
 content_margin_left = 2.0
-content_margin_top = 2.0
+content_margin_top = 6.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 bg_color = Color(0.067, 0.067, 0.106, 0.75)
 border_width_top = 4
 border_color = Color(0.0666667, 0.0666667, 0.105882, 1)
-expand_margin_top = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_haqew"]
 bg_color = Color(0.576, 0.6, 0.698, 0.3)
@@ -101,20 +103,19 @@ shadow_color = Color(0.067, 0.067, 0.106, 0.2)
 shadow_size = 4
 
 [resource]
+default_font_size = 12
 Label/colors/font_color = Color(0.803922, 0.839216, 0.956863, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.196078)
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
-Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("1_rxgg7")
 Label/styles/normal = SubResource("StyleBoxFlat_ryyi8")
 LineEdit/colors/caret_color = Color(0.960784, 0.878431, 0.862745, 1)
 LineEdit/colors/font_color = Color(0.803922, 0.839216, 0.956863, 1)
 LineEdit/colors/font_selected_color = Color(0.803922, 0.839216, 0.956863, 1)
 LineEdit/colors/selection_color = Color(0.576, 0.6, 0.698, 0.2)
-LineEdit/font_sizes/font_size = 12
 LineEdit/fonts/font = ExtResource("1_rxgg7")
-LineEdit/styles/focus = SubResource("StyleBoxFlat_uj6rd")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_sgv6n")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_uj6rd")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_uj6rd")
 PopupMenu/colors/font_accelerator_color = Color(0.651, 0.678, 0.784, 0.6)
@@ -122,9 +123,6 @@ PopupMenu/colors/font_color = Color(0.803922, 0.839216, 0.956863, 1)
 PopupMenu/colors/font_disabled_color = Color(0.345098, 0.356863, 0.439216, 1)
 PopupMenu/colors/font_hover_color = Color(0.803922, 0.839216, 0.956863, 1)
 PopupMenu/colors/font_separator_color = Color(0.65098, 0.678431, 0.784314, 1)
-PopupMenu/font_sizes/font_separator_size = 12
-PopupMenu/font_sizes/font_size = 12
-PopupMenu/font_sizes/title_font_size = 12
 PopupMenu/fonts/font = ExtResource("1_rxgg7")
 PopupMenu/fonts/font_separator = ExtResource("4_xvoov")
 PopupMenu/fonts/title_font = ExtResource("2_8jvoe")
@@ -135,11 +133,6 @@ PopupMenu/styles/panel = SubResource("StyleBoxFlat_xvoov")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_uj6rd")
 RichTextLabel/colors/default_color = Color(0.803922, 0.839216, 0.956863, 1)
 RichTextLabel/colors/selection_color = Color(0.576, 0.6, 0.698, 0.2)
-RichTextLabel/font_sizes/bold_font_size = 12
-RichTextLabel/font_sizes/bold_italics_font_size = 12
-RichTextLabel/font_sizes/italics_font_size = 12
-RichTextLabel/font_sizes/mono_font_size = 12
-RichTextLabel/font_sizes/normal_font_size = 12
 RichTextLabel/fonts/bold_font = ExtResource("2_8jvoe")
 RichTextLabel/fonts/bold_italics_font = ExtResource("3_uj6rd")
 RichTextLabel/fonts/italics_font = ExtResource("4_xvoov")
@@ -154,10 +147,12 @@ VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_e38l7")
 Window/colors/title_color = Color(0.803922, 0.839216, 0.956863, 1)
 Window/constants/close_h_offset = 16
 Window/constants/close_v_offset = 20
+Window/constants/resize_margin = 4
 Window/constants/title_height = 24
-Window/font_sizes/title_font_size = 16
 Window/fonts/title_font = ExtResource("2_8jvoe")
 Window/icons/close = ExtResource("5_xvoov")
 Window/icons/close_pressed = ExtResource("5_xvoov")
 Window/styles/embedded_border = SubResource("StyleBoxFlat_8jvoe")
 Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_8jvoe")
+script = ExtResource("6_sgv6n")
+closeSVGPath = "uid://fhsxbxlib66m"

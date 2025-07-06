@@ -5,6 +5,7 @@ using System.Numerics;
 public partial class ConsoleWindow : Window
 {
     [Export] ConsoleViewport viewport;
+    [Export] Control sizeControl;
 
     Vector2I posBuffer;
 
@@ -25,7 +26,7 @@ public partial class ConsoleWindow : Window
     {
         if (viewport.GuiEmbedSubwindows)
         {
-            Vector2I mainWinSize = GetTree().Root.GetWindow().Size;
+            Vector2I mainWinSize = new((int)sizeControl.Size.X, (int)sizeControl.Size.Y);
             int titleHeight = GetThemeConstant("title_height");
 
             Position = new(
@@ -65,7 +66,7 @@ public partial class ConsoleWindow : Window
     {
         if (viewport.GuiEmbedSubwindows)
         {
-            MaxSize = GetTree().Root.GetWindow().Size;
+            MaxSize = new((int)sizeControl.Size.X, (int)sizeControl.Size.Y);
         }
         else
         {
@@ -93,7 +94,7 @@ public partial class ConsoleWindow : Window
         {
             if (embSizeMem != Vector2I.Zero)
             {
-               Position = embPosMem;
+                Position = embPosMem;
                 Size = embSizeMem; 
             }
         }
