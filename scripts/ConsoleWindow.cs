@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Numerics;
 
 public partial class ConsoleWindow : Window
 {
@@ -14,6 +13,9 @@ public partial class ConsoleWindow : Window
 
     Vector2I embSizeMem;
     Vector2I embPosMem;
+
+    bool isResizing;
+    Vector2I sizeBuffer;
 
     public override void _Ready()
     {
@@ -40,7 +42,16 @@ public partial class ConsoleWindow : Window
     {
         if (Input.IsActionJustPressed("dev_console"))
         {
-            Visible = !Visible;
+            if (Visible)
+            {
+                SetTransMem();
+                Visible = false;
+            }
+            else
+            {
+                Visible = true;
+                RecallTransMem();
+            }
         }
 
         if (posBuffer != Position)
@@ -48,6 +59,8 @@ public partial class ConsoleWindow : Window
             RestrictPos();
             posBuffer = Position;
         }
+
+        UpdateMouseFilter();
     }
 
     private void Close()
@@ -95,7 +108,7 @@ public partial class ConsoleWindow : Window
             if (embSizeMem != Vector2I.Zero)
             {
                 Position = embPosMem;
-                Size = embSizeMem; 
+                Size = embSizeMem;
             }
         }
         else
@@ -105,6 +118,34 @@ public partial class ConsoleWindow : Window
                 Position = popPosMem;
                 Size = popSizeMem;
             }
-        } 
+        }
+    }
+
+    public void UpdateMouseFilter()
+    {
+        Vector2 mousePos = GetMousePosition();
+        float margin = (float)Theme.Get("Window/constants/resize_margin");
+
+        if (Input.IsMouseButtonPressed(MouseButton.Left))
+        {
+            if (sizeBuffer != Size)
+            {
+                isResizing = true;
+                sizeBuffer = Size;
+            }
+        }
+        else
+        {
+            isResizing = false;
+        }
+
+        if (mousePos > new Vector2(-margin, -margin) && mousePos < new Vector2(Size.X + margin, Size.Y + margin))
+        {
+            sizeControl.MouseFilter = Control.MouseFilterEnum.Pass;
+        }
+        else if (!isResizing)
+        {
+            sizeControl.MouseFilter = Control.MouseFilterEnum.Ignore;
+        }
     }
 }
