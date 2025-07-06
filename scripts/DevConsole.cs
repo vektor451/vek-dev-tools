@@ -14,6 +14,9 @@ public partial class DevConsole : Node
     public static DevConsole instance;
     private static Dictionary<string, Command> _commands = new();
 
+    public static bool Active = false;
+    public static bool PoppedOut = false;
+
     public enum PrintType
     {
         Normal,

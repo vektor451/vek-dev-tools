@@ -24,6 +24,7 @@ public partial class ConsoleViewport : SubViewport
 
             consoleWindow.ContentScaleFactor = 1 / (consoleWindow.Theme as VDevTheme).scaleFactor;
             GuiEmbedSubwindows = false;
+            DevConsole.PoppedOut = true;
 
             consoleWindow.Visible = true;
             consoleWindow.RecallTransMem();
@@ -35,6 +36,7 @@ public partial class ConsoleViewport : SubViewport
 
             consoleWindow.ContentScaleFactor = 1;
             GuiEmbedSubwindows = true;
+            DevConsole.PoppedOut = false;
 
             consoleWindow.Visible = true;
             consoleWindow.RecallTransMem();

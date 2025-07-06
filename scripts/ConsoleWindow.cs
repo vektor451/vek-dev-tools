@@ -22,6 +22,7 @@ public partial class ConsoleWindow : Window
         base._Ready();
         CloseRequested += Close;
         SizeChanged += ClampSize;
+        Visible = false;
     }
 
     public void RestrictPos()
@@ -46,11 +47,13 @@ public partial class ConsoleWindow : Window
             {
                 SetTransMem();
                 Visible = false;
+                DevConsole.Active = false;
             }
             else
             {
                 Visible = true;
                 RecallTransMem();
+                DevConsole.Active = true;
             }
         }
 
