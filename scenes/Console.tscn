@@ -36,7 +36,7 @@ disable_3d = true
 transparent_bg = true
 handle_input_locally = false
 gui_embed_subwindows = true
-size = Vector2i(2560, 1440)
+size = Vector2i(3840, 2160)
 render_target_update_mode = 4
 script = ExtResource("1_vo5oj")
 consoleWindow = NodePath("ConsoleWindow")
@@ -44,6 +44,7 @@ container = NodePath("..")
 
 [node name="ConsoleWindow" type="Window" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("viewport", "sizeControl")]
 transparent_bg = true
+oversampling_override = 1.0
 title = "Developer Console"
 initial_position = 2
 size = Vector2i(640, 480)

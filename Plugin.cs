@@ -1,3 +1,4 @@
+#if TOOLS
 using Godot;
 using System;
 
@@ -19,3 +20,4 @@ public partial class Plugin : EditorPlugin
         RemoveAutoloadSingleton("DevConsole");
     }
 }
+#endif
