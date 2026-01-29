@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://icrfc8tswsjn"]
+[gd_scene format=3 uid="uid://icrfc8tswsjn"]
 
 [ext_resource type="Script" uid="uid://d1o65nuhqx4qx" path="res://addons/vek-dev-tools/scripts/StayOnTop.cs" id="1_jv7hh"]
-[ext_resource type="PackedScene" uid="uid://buvyjgpb5k0yr" path="res://addons/vek-dev-tools/scenes/Console.tscn" id="2_ynwkh"]
+[ext_resource type="PackedScene" uid="uid://dpvc55nxvrumr" path="res://addons/vek-dev-tools/scenes/ConsoleUnpoppable.tscn" id="2_i161q"]
 
-[node name="Devtools" type="Control"]
+[node name="Devtools" type="Control" unique_id=521655193]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -14,5 +14,5 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_jv7hh")
 
-[node name="ConsoleUI" parent="." instance=ExtResource("2_ynwkh")]
+[node name="ConsoleUIUnpoppable" parent="." unique_id=1079578857 instance=ExtResource("2_i161q")]
 layout_mode = 1

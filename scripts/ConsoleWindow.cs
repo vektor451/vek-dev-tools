@@ -5,6 +5,7 @@ public partial class ConsoleWindow : Window
 {
     [Export] ConsoleViewport viewport;
     [Export] Control sizeControl;
+    [Export] bool UseViewportLogic;
 
     Vector2I posBuffer;
 
@@ -17,17 +18,19 @@ public partial class ConsoleWindow : Window
     bool isResizing;
     Vector2I sizeBuffer;
 
-    public override void _Ready()
+    public async override void _Ready()
     {
         base._Ready();
         CloseRequested += Close;
         SizeChanged += ClampSize;
         Visible = false;
+        DevConsole.Active = false;
+        Size = (Vector2I)ProjectSettings.GetSetting("dev_tools/config/console_window_size", Size);
     }
 
     public void RestrictPos()
     {
-        if (viewport.GuiEmbedSubwindows)
+        if (viewport != null && viewport.GuiEmbedSubwindows)
         {
             Vector2I mainWinSize = new((int)sizeControl.Size.X, (int)sizeControl.Size.Y);
             int titleHeight = GetThemeConstant("title_height");
@@ -63,24 +66,28 @@ public partial class ConsoleWindow : Window
             posBuffer = Position;
         }
 
-        UpdateMouseFilter();
+        if(viewport != null)
+        {
+            UpdateMouseFilter();
+        }
     }
 
     private void Close()
     {
-        if (!viewport.GuiEmbedSubwindows)
+        if (viewport != null && !viewport.GuiEmbedSubwindows)
         {
             viewport.Pop();
         }
         else
         {
             Visible = false;
+            DevConsole.Active = false;
         }
     }
 
     public void ClampSize()
     {
-        if (viewport.GuiEmbedSubwindows)
+        if (viewport == null || viewport.GuiEmbedSubwindows)
         {
             MaxSize = new((int)sizeControl.Size.X, (int)sizeControl.Size.Y);
         }
@@ -92,7 +99,7 @@ public partial class ConsoleWindow : Window
 
     public void SetTransMem()
     {
-        if (viewport.GuiEmbedSubwindows)
+        if (viewport == null || viewport.GuiEmbedSubwindows)
         {
             embPosMem = Position;
             embSizeMem = Size;
@@ -106,7 +113,7 @@ public partial class ConsoleWindow : Window
 
     public void RecallTransMem()
     {
-        if (viewport.GuiEmbedSubwindows)
+        if (viewport == null || viewport.GuiEmbedSubwindows)
         {
             if (embSizeMem != Vector2I.Zero)
             {
@@ -142,7 +149,7 @@ public partial class ConsoleWindow : Window
             isResizing = false;
         }
 
-        if (mousePos > new Vector2(-margin, -margin) && mousePos < new Vector2(Size.X + margin, Size.Y + margin))
+        if (mousePos > new Vector2(-margin, -margin) && mousePos < new Vector2(Size.X + margin, Size.Y + margin) || Visible)
         {
             sizeControl.MouseFilter = Control.MouseFilterEnum.Pass;
         }

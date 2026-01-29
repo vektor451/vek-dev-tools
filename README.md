@@ -7,6 +7,11 @@
 4. Add a `dev_console` action into your project's input map, which can also be found in the project settings (this is necessary for opening the console).
 5. If you want to be able to use the popout functionality to have the console as a seperate window, you need to disable the **Embed Subwindows** setting in your project settings. The property path is: `display/window/subwindows/embed_subwindows`.
 
+>[!IMPORTANT]
+> The popout functionality is currently disabled due to a large number of present bugs within it's implementation that are proving to be quite frustraing and difficult to fix. With recent improvements to the engine, the output text can now be made floating, which can be used instead of the popout functionality for monitoring console output.
+> 
+> If this feature is still desired, you can try to replace the `ConsoleUnpoppable.tscn` instance within `DevTools.tscn` with `ConsolePoppable.tscn`. 
+
 ## Usage
 >[!NOTE]
 > This version of the console has backwards compatibility with the [previous developer console](https://github.com/vektor451/vek-dev-console) I have made, and any projects using that plugin will also work with this one so long as you delete the previous console. 

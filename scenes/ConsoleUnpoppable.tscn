@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dpvc55nxvrumr"]
+
+[ext_resource type="Theme" uid="uid://c8xwqtlqsjwdp" path="res://addons/vek-dev-tools/assets/vdev_theme.tres" id="1_p6kq6"]
+[ext_resource type="Script" uid="uid://d0uyb5e1ss5pi" path="res://addons/vek-dev-tools/scripts/ConsoleWindow.cs" id="3_4fnj3"]
+[ext_resource type="Script" uid="uid://x0tg7hljd0es" path="res://addons/vek-dev-tools/scripts/ConsoleLog.cs" id="4_cake1"]
+[ext_resource type="Script" uid="uid://dq10i4b0xdqwe" path="res://addons/vek-dev-tools/scripts/CommandSuggestions.cs" id="5_p7vn6"]
+[ext_resource type="Script" uid="uid://bxhqibl8mhcft" path="res://addons/vek-dev-tools/scripts/CommandEntry.cs" id="6_yuh4h"]
+[ext_resource type="Script" uid="uid://bpolavhpcdafc" path="res://addons/vek-dev-tools/scripts/VDevThemeHandler.cs" id="7_l00tm"]
+
+[node name="ConsoleUI" type="Control" unique_id=636808727]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ThemeHandler" type="Node" parent="." unique_id=886359675 node_paths=PackedStringArray("sizeControl")]
+script = ExtResource("7_l00tm")
+theme = ExtResource("1_p6kq6")
+sizeControl = NodePath("..")
+
+[node name="ConsoleWindow" type="Window" parent="." unique_id=623362462 node_paths=PackedStringArray("viewport", "sizeControl")]
+transparent_bg = true
+oversampling_override = 1.0
+title = "Developer Console"
+initial_position = 2
+size = Vector2i(640, 480)
+transparent = true
+sharp_corners = true
+min_size = Vector2i(256, 256)
+theme = ExtResource("1_p6kq6")
+script = ExtResource("3_4fnj3")
+viewport = NodePath("")
+sizeControl = NodePath("..")
+
+[node name="BG" type="ColorRect" parent="ConsoleWindow" unique_id=1293542915]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.137255, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConsoleWindow" unique_id=1340051611]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ConsoleWindow/VBoxContainer" unique_id=834655883]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Text" type="RichTextLabel" parent="ConsoleWindow/VBoxContainer/MarginContainer" unique_id=147644798]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Vekkie's Developer Console and Tools!"
+scroll_following = true
+context_menu_enabled = true
+selection_enabled = true
+script = ExtResource("4_cake1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConsoleWindow/VBoxContainer/MarginContainer" unique_id=126945594]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="Label" type="Label" parent="ConsoleWindow/VBoxContainer/MarginContainer/VBoxContainer" unique_id=197663620]
+layout_mode = 2
+text = "echo
+hello
+goodbye"
+script = ExtResource("5_p7vn6")
+
+[node name="CommandEntry" type="LineEdit" parent="ConsoleWindow/VBoxContainer" unique_id=899944287 node_paths=PackedStringArray("popup", "window")]
+layout_mode = 2
+placeholder_text = "Enter command."
+keep_editing_on_text_submit = true
+emoji_menu_enabled = false
+caret_blink = true
+caret_mid_grapheme = true
+script = ExtResource("6_yuh4h")
+popup = NodePath("../MarginContainer/VBoxContainer/Label")
+window = NodePath("../..")

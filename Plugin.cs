@@ -1,4 +1,3 @@
-#if TOOLS
 using Godot;
 using System;
 
@@ -12,12 +11,16 @@ public partial class Plugin : EditorPlugin
     {
         AddAutoloadSingleton("DevTools", TOOLS_UI_PATH);
         AddAutoloadSingleton("DevConsole", CONSOLE_PATH);
+
+        ProjectSettings.SetSetting("dev_tools/config/console_window_size", new Vector2I(640, 480));
     }
 
     public override void _ExitTree()
     {
         RemoveAutoloadSingleton("DevTools");
         RemoveAutoloadSingleton("DevConsole");
+
+        // new() variant is equivalent to null for GDScript. Doing this will remove these settings. 
+        ProjectSettings.SetSetting("dev_tools/config/console_window_size", new());
     }
 }
-#endif

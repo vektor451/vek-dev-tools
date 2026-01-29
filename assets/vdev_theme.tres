@@ -1,10 +1,10 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://c8xwqtlqsjwdp"]
+[gd_resource type="Theme" format=3 uid="uid://c8xwqtlqsjwdp"]
 
 [ext_resource type="FontVariation" uid="uid://icyg3f00kg68" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoConsole.tres" id="1_rxgg7"]
 [ext_resource type="FontVariation" uid="uid://bgwgc12twcwkc" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoBoldConsole.tres" id="2_8jvoe"]
 [ext_resource type="FontVariation" uid="uid://cyad4p5vd6mwt" path="res://addons/vek-dev-tools/fonts/Roboto Mono/robotoMonoBoldItalicConsole.tres" id="3_uj6rd"]
 [ext_resource type="FontFile" uid="uid://b7rpmtmesesmd" path="res://addons/vek-dev-tools/fonts/Roboto Mono/RobotoMono-Italic-VariableFont_wght.ttf" id="4_xvoov"]
-[ext_resource type="Texture2D" uid="uid://blqkceatryrkj" path="res://addons/vek-dev-tools/assets/closeIconPlaceholder.svg" id="5_sgv6n"]
+[ext_resource type="Texture2D" uid="uid://fhsxbxlib66m" path="res://addons/vek-dev-tools/assets/closeIcon.svg" id="5_xvoov"]
 [ext_resource type="Script" uid="uid://bpqy58a8miwfw" path="res://addons/vek-dev-tools/scripts/VDevTheme.cs" id="6_sgv6n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryyi8"]
@@ -150,9 +150,9 @@ Window/constants/close_v_offset = 20
 Window/constants/resize_margin = 4
 Window/constants/title_height = 24
 Window/fonts/title_font = ExtResource("2_8jvoe")
-Window/icons/close = ExtResource("5_sgv6n")
-Window/icons/close_pressed = ExtResource("5_sgv6n")
+Window/icons/close = ExtResource("5_xvoov")
+Window/icons/close_pressed = ExtResource("5_xvoov")
 Window/styles/embedded_border = SubResource("StyleBoxFlat_8jvoe")
 Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_8jvoe")
 script = ExtResource("6_sgv6n")
-closeSVGPath = "res://addons/vek-dev-tools/assets/closeIcon.svg"
+closeSVGPath = "uid://fhsxbxlib66m"
