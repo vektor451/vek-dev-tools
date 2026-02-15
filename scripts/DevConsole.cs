@@ -228,8 +228,8 @@ public partial class DevConsole : Node
     {
         if (HasCommand(name))
         {
-            GD.PushError("Tried to add command \"" + name + "\" to the console, but it already exists!");
-            return;
+            GD.PushWarning("Replacing existing command \"" + name + "\". If intended, please remove first.");
+            RemoveCommand(name);
         }
 
         if (command.Action == null)
@@ -259,10 +259,10 @@ public partial class DevConsole : Node
         {
             _commands.Remove(name);
         }
+        // Pushing a warning is just kind of annoying tbf. Like, mission is already accomplished, there is no problems! 
         else
         {
-            GD.PushWarning("Tried to remove command \"" + name + "\" from the console, but it doesn't exist!");
-            Print("Tried to remove command \"" + name + "\" from the console, but it doesn't exist!.", PrintType.Warning);
+            //GD.Print("Tried to remove command \"" + name + "\" from the console, but it already doesn't exist.");
         }
     }
 
