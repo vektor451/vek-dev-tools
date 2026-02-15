@@ -5,7 +5,7 @@
 2. Build the C# solution. If you are placing the addon in a new project, you might have to make a random empty C# script first to be able to build it. 
 3. Enable `Vekkie's Dev Console and Tools` in the plugins tab of your project settings.
 4. Add a `dev_console` action into your project's input map, which can also be found in the project settings (this is necessary for opening the console).
-5. If you want to be able to use the popout functionality to have the console as a seperate window, you need to disable the **Embed Subwindows** setting in your project settings. The property path is: `display/window/subwindows/embed_subwindows`.
+5. ~~If you want to be able to use the popout functionality to have the console as a seperate window, you need to disable the **Embed Subwindows** setting in your project settings. The property path is: `display/window/subwindows/embed_subwindows`.~~ Do not follow this step without first reading the below important note. If you still wish to use the popout functionality and replace the scene instance, you may still follow it.
 
 >[!IMPORTANT]
 > The popout functionality is currently disabled due to a large number of present bugs within it's implementation that are proving to be quite frustraing and difficult to fix. With recent improvements to the engine, the output text can now be made floating, which can be used instead of the popout functionality for monitoring console output.
